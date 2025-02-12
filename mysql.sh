@@ -28,17 +28,17 @@ CHECK_POINT(){
        exit 1 #other thank 0
     fi
 }       
-echo "Script started executing at: $TIMESTAMP"
+echo "Script started executing at: $TIMESTAMP" &>>$LOG_FILE_NAME
 
 CHECK_POINT
 
-dnf install mysql-server -y
+dnf install mysql-server -y &>>$LOG_FILE_NAME
 VALIDATE $? "Installing mysql server"
 
-systemctl enable mysql
+systemctl enable mysql &>>$LOG_FILE_NAME
 VALIDATE $? "Enabling mysql server"
 
-systemctl start mysqld
+systemctl start mysqld &>>$LOG_FILE_NAME
 VALIDATE $? "starting mysql server"
 
 mysql_secure_installation --set-root-pass ExpenseApp@1
