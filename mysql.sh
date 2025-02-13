@@ -29,17 +29,17 @@
         fi
 }
 
-    echo "Script started executing at: $TIMESTAMP" &>>$LOG_FILE_NAME
+    echo "Script started executing at: $TIMESTAMP"
 
     CHECK_POINT
 
-    dnf install mysql-server -y &>>$LOG_FILE_NAME
+    dnf install mysql-server -y
     VALIDATE $? "Installing MySQL Server"
 
-    systemctl enable mysql &>>$LOG_FILE_NAME
+    systemctl enable mysql
     VALIDATE $? "Enabling MySQL Server"
 
-    systemctl start mysqld &>>$LOG_FILE_NAME
+    systemctl start mysqld
     VALIDATE $? "starting MySQL Server"
 
     mysql -h mysql.yadala.fun -u root -pExpenseApp@1 -e 'show databases;'
