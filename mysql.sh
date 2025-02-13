@@ -36,6 +36,9 @@
     dnf install mysql-server -y
     VALIDATE $? "Installing MySQL Server"
 
+    systemctl daemon-reload
+    VALIDATE $? "reloading MySQL server"
+    
     systemctl enable mysql
     VALIDATE $? "Enabling MySQL Server"
 
