@@ -42,5 +42,5 @@
     systemctl start mysqld
     VALIDATE $? "starting MySQL Server"
 
-    mysql -h mysql.yadala.fun -u root -pExpenseApp@1 -e 'show databases;'
+    mysql_secure_installation --set-root-pass ExpenseApp@1
     VALIDATE $? "Setting Root Password"
