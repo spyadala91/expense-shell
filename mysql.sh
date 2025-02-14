@@ -7,6 +7,7 @@ Y="\e[33m"
 N="\e[0m"
 
 LOGS_FOLDER="/var/log/expense-logs"
+[ ! -d "LOGS_FOLDER" ] && mkdir -p "LOGS_FOLDER"
 LOG_FILE=$(basename "$0" | cut -d "." -f1 )
 TIMESTAMP=$(date +%Y-%m-%d-%H-%M-%S)
 LOG_FILE_NAME="$LOGS_FOLDER/$LOG_FILE-$TIMESTAMP.log"
