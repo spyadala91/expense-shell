@@ -28,12 +28,12 @@ CHECK_POINT(){
     fi
 }
 
-echo "Script started executing at: $TIMESTAMP"
+echo "Script started executing at: $TIMESTAMP" &>> $LOG_FILE_NAME
 
 CHECK_POINT
 
 dnf install mysql-server -y
-VALIDATE $? "Installing MySQL Server"
+VALIDATE $? "Installing MySQL Server" &>> $LOG_FILE_NAME
 
 systemctl enable mysqld &>> $LOG_FILE_NAME
 VALIDATE $? "Enabling MySQL Server"
