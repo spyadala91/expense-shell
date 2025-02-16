@@ -41,7 +41,7 @@ VALIDATE $? "Enabling MySQL Server"
 systemctl start mysqld &>> $LOG_FILE_NAME
 VALIDATE $? "Starting MySQL Server"
 
-mysql -h mysql.yadala.fun -u root -pExpenseApp@1 -e 'show databases;' &>> $LOG_FILE_NAME
+mysql -h mysql.yadala.fun -u root -pExpenseApp@1 -e 'show databases;'
 
 if [ $? -ne 0 ]
 then
